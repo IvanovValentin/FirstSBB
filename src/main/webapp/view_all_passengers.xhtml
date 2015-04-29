@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:form>
+        <h:panelGrid columns="3" cellpadding="10">
+            <h:outputText value="Поезд"/>
+            <p:selectOneMenu value="#{viewAllPassengersBean.train}" effect="fade" style="width: 200px"
+                             required="true" requiredMessage="поле 'Поезд' не может быть пустым">
+                <f:selectItem/>
+                <f:selectItems value="#{selectOneMenuBean.trains}"/>
+            </p:selectOneMenu>
+            <p:commandButton value="Найти" update="passengers" action="#{viewAllPassengersBean.loadPassengers}"/>
+        </h:panelGrid>
+        <p:dataTable id="passengers" var="passenger" value="#{viewAllPassengersBean.listPassenges}" emptyMessage="Ни одной записи не найдено">
+            <p:column headerText="Фамилия">
+                <h:outputText value="#{passenger[0]}"/>
+            </p:column>
+            <p:column headerText="Имя">
+                <h:outputText value="#{passenger[1]}"/>
+            </p:column>
+            <p:column headerText="Дата рождения">
+                <h:outputText value="#{passenger[2]}"/>
+            </p:column>
+            <p:column headerText="Дата отправления поезда">
+                <h:outputText value="#{passenger[3]}"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+
+</ui:composition>

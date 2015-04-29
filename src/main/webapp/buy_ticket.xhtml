@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:form>
+        <div>
+            <p:messages autoUpdate="true" closable="true"/>
+        </div>
+        <h:panelGrid columns="2" cellpadding="15">
+            <h:outputText value="Маршрут"/>
+            <p:selectOneMenu value="#{buyTicketBean.route}" effect="fade" style="width: 250px"
+                             required="true" requiredMessage="поле 'Маршрут' не может быть пустым">
+                <f:selectItem/>
+                <f:selectItems value="#{selectOneMenuBean.routes}"/>
+                <p:ajax update="trains" listener="#{buyTicketBean.trainsByRoute}"/>
+                <p:ajax update="stationFrom" listener="#{buyTicketBean.stationsFromByRoute}"/>
+                <p:ajax update="stationTo" listener="#{buyTicketBean.stationsToByRoute}"/>
+            </p:selectOneMenu>
+            <h:outputText value="Поезд"/>
+            <p:selectOneMenu id="trains" value="#{buyTicketBean.train}" effect="fade" style="width: 250px"
+                             required="true" requiredMessage="поле 'Поезд' не может быть пустым">
+                <f:selectItem/>
+                <f:selectItems value="#{buyTicketBean.allTrains}"/>
+                <p:ajax update="dates" listener="#{buyTicketBean.datesByTrainAndRoute}"/>
+            </p:selectOneMenu>
+            <h:outputText value="Дата"/>
+            <p:selectOneMenu id="dates" value="#{buyTicketBean.date}" effect="fade" style="width: 250px"
+                             required="true" requiredMessage="поле 'Дата' не может быть пустым">
+                <f:selectItem/>
+                <f:selectItems value="#{buyTicketBean.allDates}"/>
+            </p:selectOneMenu>
+            <h:outputText value="От"/>
+            <p:selectOneMenu id="stationFrom" value="#{buyTicketBean.stationFrom}" effect="fade" style="width: 250px"
+                             required="true" requiredMessage="поле 'От' не может быть пустым">
+                <f:selectItem/>
+                <f:selectItems value="#{buyTicketBean.allStationsFrom}"/>
+            </p:selectOneMenu>
+            <h:outputText value="До"/>
+            <p:selectOneMenu id="stationTo" value="#{buyTicketBean.stationTo}" effect="fade" style="width: 250px"
+                             required="true" requiredMessage="поле 'До' не может быть пустым">
+                <f:selectItem/>
+                <f:selectItems value="#{buyTicketBean.allStationsTo}"/>
+            </p:selectOneMenu>
+
+            <h:outputText value="Имя" />
+            <h:inputText value="#{buyTicketBean.firstName}" style="width: 250px"
+                         required="true" requiredMessage="поле 'Имя' не может быть пустым"/>
+            <h:outputText value="Фамилия"/>
+            <h:inputText value="#{buyTicketBean.lastName}" style="width: 250px"
+                         required="true" requiredMessage="поле 'Фамилия' не может быть пустым"/>
+            <h:outputText value="Дата рождения"/>
+            <p:calendar  value="#{buyTicketBean.birthday}" pattern="yyyy-MM-dd" size="23"
+                         required="true" requiredMessage="поле 'Дата рождения' не может быть пустым"/>
+            <p:commandButton value="Купить билет"  action="#{buyTicketBean.buyTicket}"/>
+        </h:panelGrid>
+    </h:form>
+</ui:composition>

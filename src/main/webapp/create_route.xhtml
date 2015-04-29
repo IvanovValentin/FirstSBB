@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:form>
+        <div>
+            <p:messages autoUpdate="true"  closable="true"/>
+        </div>
+        <h:panelGrid id="createRoute" columns="2" cellpadding="10">
+            <h:outputText value="Название"/>
+            <h:inputText id="name" value="#{createRouteBean.route}" size="20"
+                         required="true" requiredMessage="поле 'Название' не может быть пустым"/>
+            <h:outputText value="Номер следования"/>
+            <p:selectOneMenu  value="#{createRouteBean.sequenceNumber}" effect="fade" style="width: 220px">
+                <f:selectItem/>
+                <f:selectItems value="#{selectOneMenuBean.sequenceNumber}"/>
+            </p:selectOneMenu>
+            <h:outputText value="От"/>
+            <p:selectOneMenu value="#{createRouteBean.stationFrom}" effect="fade" style="width: 220px"
+                             required="true" requiredMessage="поле 'От' не может быть пустым">
+                <f:selectItem/>
+                <f:selectItems value="#{selectOneMenuBean.stations}"/>
+            </p:selectOneMenu>
+            <h:outputText value="До"/>
+            <p:selectOneMenu value="#{createRouteBean.stationTo}" effect="fade" style="width: 220px"
+                             required="true" requiredMessage="поле 'До' не может быть пустым">
+                <f:selectItem/>
+                <f:selectItems value="#{selectOneMenuBean.stations}"/>
+            </p:selectOneMenu>
+            <h:outputText value="Время следования между станциями"/>
+            <p:calendar id="time" value="#{createRouteBean.duration}" pattern="HH:mm" timeOnly="true"  size="19"
+                        required="true"
+                        requiredMessage="поле 'Время следования между станциями' не может быть пустым"/>
+                <p:commandButton action="#{createRouteBean.createRoute}" value="Добавить"/>
+
+
+        </h:panelGrid>
+    </h:form>
+
+</ui:composition>

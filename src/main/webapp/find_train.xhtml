@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:form>
+        <h:panelGrid columns="5" cellpadding="8">
+            <h:outputText value="Откуда"/>
+            <h:outputText value="Куда"/>
+            <h:outputText value="Дата от"/>
+            <h:outputText value="Дата до"/>
+            <h:outputText value=""/>
+            <p:selectOneMenu value="#{findTrainBean.stationFrom}" effect="fade" style="width: 150px"
+                             required="true" requiredMessage="поле 'Откуда' не может быть пустым">
+                <f:selectItem/>
+                <f:selectItems value="#{selectOneMenuBean.stations}"/>
+            </p:selectOneMenu>
+            <p:selectOneMenu value="#{findTrainBean.stationTo}" effect="fade" style="width: 150px"
+                             required="true" requiredMessage="поле 'Куда' не может быть пустым">
+                <f:selectItem/>
+                <f:selectItems value="#{selectOneMenuBean.stations}"/>
+            </p:selectOneMenu>
+            <p:calendar id="datetime1" value="#{findTrainBean.date1}" pattern="yyyy-MM-dd HH:mm:ss" size="9"
+                        required="true" requiredMessage="поле 'Дата от' не может быть пустым"/>
+            <p:calendar id="datetime2" value="#{findTrainBean.date2}" pattern="yyyy-MM-dd HH:mm:ss" size="9"
+                        required="true" requiredMessage="поле 'Дата до' не может быть пустым"/>
+            <p:commandButton value="Найти" update="findTrain" action="#{findTrainBean.findTrain}"/>
+        </h:panelGrid>
+        <p:dataTable id="findTrain" var="train" value="#{findTrainBean.listTrains}" emptyMessage="Ни одной записи не найдено">
+            <p:column headerText="Поезд">
+                <h:outputText value="#{train[0]}"/>
+            </p:column>
+            <p:column headerText="Маршрут">
+                <h:outputText value="#{train[1]}"/>
+            </p:column>
+            <p:column headerText="Дата и время">
+                <h:outputText value="#{train[2]}"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+
+</ui:composition>

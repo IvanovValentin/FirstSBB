@@ -1,0 +1,14 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <h:form>
+        <p:menubar>
+                <p:menuitem value="SBB project" action="/sbb-1.0-SNAPSHOT/index_page.xhtml"/>
+            <f:facet name="options">
+                <h:outputText value="#{userBean.email}" style="margin-right:20px" />
+                <p:commandButton value="Выйти" icon="ui-icon-extlink" action="#{authorizationBean.logout}"/>
+            </f:facet>
+        </p:menubar>
+    </h:form>
+</ui:composition>

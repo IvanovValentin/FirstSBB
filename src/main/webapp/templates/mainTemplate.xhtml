@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+        >
+
+<h:head>
+    <h:outputStylesheet name="myStyle.css" library="css" />
+
+</h:head>
+
+<h:body>
+
+    <div id="templatemo_wrapper">
+        <div id="templatemo_top">
+            <ui:insert name="header" >
+                <ui:include src="/templates/mainHeader.xhtml" />
+            </ui:insert>
+
+        </div>
+
+        <div id="templatemo_middle">
+            <div class="ui-widget">
+
+                <ui:insert name="content" >
+                    <ui:include src="" />
+                </ui:insert>
+            </div>
+        </div>
+        <div id="templatemo_main">
+
+        </div>
+    </div>
+
+    <div id="templatemo_footer_wrapper">
+        <div id="templatemo_footer">
+            <div class="clear"></div>
+            <div id="templatemo_copyright">
+                Copyright © 2015 SBB
+            </div>
+        </div>
+    </div>
+
+
+</h:body>
+
+</html>

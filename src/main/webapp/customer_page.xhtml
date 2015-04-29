@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+                template="templates/userTemplate.xhtml">
+
+    <ui:define name="content">
+        <p:tabView dynamic="true" cache="true">
+            <p:tab title="Поиск поезда">
+                <ui:include src="find_train.xhtml"/>
+            </p:tab>
+            <p:tab title="Расписание">
+                <ui:include src="schedule.xhtml"/>
+            </p:tab>
+            <p:tab title="Покупка билета">
+                <ui:include src="buy_ticket.xhtml"/>
+            </p:tab>
+        </p:tabView>
+    </ui:define>
+
+</ui:composition>

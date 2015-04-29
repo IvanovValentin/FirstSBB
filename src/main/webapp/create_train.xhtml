@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:form>
+        <div>
+            <p:messages autoUpdate="true" closable="true"/>
+        </div>
+        <h:panelGrid id="createTrain" columns="2" cellpadding="10">
+            <h:outputText value="Название"/>
+            <h:inputText id="name" value="#{createTrainBean.train}" size="20"
+                         required="true" requiredMessage="поле 'Название' не может быть пустым"/>
+            <h:outputText value="Количество мест"/>
+            <h:inputText value="#{createTrainBean.capacity}" size="20"
+                         converterMessage="поле 'Количество мест' должно быть числом"/>
+            <p:commandButton value="Добавить" action="#{createTrainBean.createTrain}" />
+        </h:panelGrid>
+    </h:form>
+
+</ui:composition>

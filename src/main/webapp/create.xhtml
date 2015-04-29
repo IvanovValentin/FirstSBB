@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <p:tabView id="create" dynamic="true" cache="true">
+        <p:tab title="Станцию">
+            <ui:include src="create_station.xhtml"/>
+        </p:tab>
+        <p:tab title="Поезд">
+            <ui:include src="create_train.xhtml"/>
+        </p:tab>
+        <p:tab title="Маршрут">
+            <ui:include src="create_route.xhtml"/>
+        </p:tab>
+        <p:tab title="Поездку">
+            <ui:include src="create_trip.xhtml"/>
+        </p:tab>
+    </p:tabView>
+
+</ui:composition>

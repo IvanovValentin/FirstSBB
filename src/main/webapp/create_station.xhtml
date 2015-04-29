@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:form>
+        <div>
+            <p:messages autoUpdate="true"  closable="true"/>
+        </div>
+        <h:panelGrid id="createStation" columns="2" cellpadding="10">
+            <h:outputText value="Название"/>
+            <h:inputText id="name" value="#{createStationBean.station}" size="20"
+                         required="true" requiredMessage="поле 'Название' не может быть пустым"/>
+            <p:commandButton value="Добавить" action="#{createStationBean.createStation}" />
+        </h:panelGrid>
+    </h:form>
+
+</ui:composition>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:form>
+        <p:dataTable id="schedule" var="train" value="#{viewAllTrainsBean.listTrains}" emptyMessage="Ни одной записи не найдено">
+            <p:column headerText="Поезд">
+                <h:outputText value="#{train[0]}"/>
+            </p:column>
+            <p:column headerText="Маршрут">
+                <h:outputText value="#{train[1]}"/>
+            </p:column>
+            <p:column headerText="Дата и время">
+                <h:outputText value="#{train[2]}"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+
+</ui:composition>

@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                                 xmlns:h="http://java.sun.com/jsf/html"
+                                 xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+                                 xmlns:c="http://java.sun.com/jsf/core">
+
+    <p:panel header="Регистрация">
+        <h:form>
+            <div>
+                <p:messages autoUpdate="true" closable="true"/>
+            </div>
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="7">
+                <h:outputText value="email"/>
+                <h:inputText value="#{registrationBean.email}" size="20"
+                             required="true" requiredMessage="поле 'email' не может быть пустым"/>
+                <h:outputText value="Пароль"/>
+                <h:inputSecret value="#{registrationBean.password1}" size="20"
+                               required="true" requiredMessage="поле 'Пароль' не может быть пустым"/>
+                <h:outputText value="Подтверждение пароля" />
+                <h:inputSecret value="#{registrationBean.password2}" size="20"
+                               required="true" requiredMessage="поле 'Подтверждение пароля' не может быть пустым"/>
+
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:commandButton action="#{registrationBean.registration}" value="Зарегистрировать"/>
+                    <a class="link" href="/sbb-1.0-SNAPSHOT/send_password_page.xhtml">Забыли пароль?</a>
+                </h:panelGrid>
+            </h:panelGrid>
+        </h:form>
+    </p:panel>
+</ui:composition>

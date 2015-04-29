@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #ccc;
+    background-color: #0a6298;
+    background-image: url(/sbb-1.0-SNAPSHOT/resources/images/templatemo_body.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.content_wrapper { overflow: hidden; width: 100% }
+
+
+#templatemo_wrapper {
+    width: 980px;
+    margin: 0 auto;
+    padding: 40px 10px 0;
+}
+#templatemo_header {
+    position: relative;
+    width: 100%;
+    height: 75px;
+    z-index: 3;
+}
+
+#templatemo_middle {
+    position: relative;
+    width: 900px;
+    margin-top: -5px;
+    min-height: 577px;
+    padding: 30px 40px;
+    background: #efefef;
+    z-index: 1;
+    border-radius: 6px;
+
+}
+#templatemo_top {
+    height: 40px;
+    margin-bottom: 40px;
+}
+
+#templatemo_main { clear: both; margin: 20px 0; padding: 20px 40px }
+
+
+#templatemo_footer_wrapper {
+    clear: both;
+    width: 100%;
+    background: #efefef;
+}
+#templatemo_footer {
+    width: 900px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+#templatemo_footer { color: #5d676e; font-size: 11px; }
+#templatemo_footer a { color: #5d676e; }
+#templatemo_footer h4 { color: #333333 }
+#templatemo_copyright {
+    margin-top: 40px;
+    color: #999999;
+    text-align: center;
+    width: 900px;
+    height: 52px;
+    line-height: 52px;
+    background: url(/sbb-1.0-SNAPSHOT/resources/images/templatemo_copyright.png) center
+}
+
+
+#user {
+    float: right;
+}
+#name {
+    float: left;
+    width: 250px;
+}
+
+
